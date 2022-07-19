@@ -23,3 +23,7 @@ print("\n\nCovariance: \n", irisData.cov())
 print("\n#######################################################\n")
 print("\n\nCoefficient of Correlation : \n", irisData.corr(method='pearson'))
 print("\n#######################################################\n")
+
+#BOXPLOTTING BY CLASS
+for col in irisData.columns[:-1]:
+   irisData.boxplot(by='class',column=[col])    
