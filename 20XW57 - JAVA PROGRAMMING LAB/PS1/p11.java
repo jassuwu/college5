@@ -6,28 +6,50 @@ public class p11 {
         Scanner sc = new Scanner(System.in);
 
         String[] numStr = sc.nextLine().split(" ");
-        int[] arr = new int[numStr.length-1];
-        for(int i = 0; i < arr.length - 1; i++) {
-            arr[i] = Integer.parseInt(numStr[i+1]) - Integer.parseInt(numStr[i]);
+        LinkedList<Integer>li = new LinkedList<>();
+        int prevPrime = 2;
+        for(int i = Integer.parseInt(numStr[0]);i < Integer.parseInt(numStr[1]); i++ ){
+            if(isPrime(i)){
+                prevPrime = i;
+                break;
+            }
         }
-        System.out.println("The Jumping champion is: " + mostFrequent(arr, arr.length));
+        for(int i = prevPrime+1; i < Integer.parseInt(numStr[1]) - 1; i++) {
+            if(isPrime(i)){
+                li.push(i - prevPrime);
+                prevPrime = i;
+            }
+        }
+        System.out.println("The Jumping champion is: " + mostFrequent(li, li.size()));
     }
 
-    public static int mostFrequent(int[] arr, int n)
+    public static boolean isPrime(int n) {
+        if (n <= 1) {
+            return false;
+        }
+        for (int i = 2; i < Math.sqrt(n); i++) {
+            if (n % i == 0) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public static int mostFrequent(LinkedList<Integer> li, int n)
     {
         int maxcount = 0;
         int element_having_max_freq = 0;
         for (int i = 0; i < n; i++) {
             int count = 0;
             for (int j = 0; j < n; j++) {
-                if (arr[i] == arr[j]) {
+                if (li.get(i) == li.get(j)) {
                     count++;
                 }
             }
 
             if (count > maxcount) {
                 maxcount = count;
-                element_having_max_freq = arr[i];
+                element_having_max_freq = li.get(i);
             }
         }
         return element_having_max_freq;
