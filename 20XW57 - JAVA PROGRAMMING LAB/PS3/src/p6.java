@@ -3,7 +3,7 @@ import java.util.*;
 public class p6 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        int minutes = Integer.parseInt(sc.nextLine()); // I don't even use this.
+        // int minutes = Integer.parseInt(sc.nextLine()); // I don't even use this.
         String[] events = sc.nextLine().split(" ");
         sc.close();
         boolean flag = true;
