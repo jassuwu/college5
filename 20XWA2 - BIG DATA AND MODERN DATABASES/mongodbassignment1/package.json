@@ -1,0 +1,12 @@
+{
+  "scripts ": {
+    "start": "nodemon index.js"
+  },
+  "dependencies": {
+    "dotenv": "^16.0.2",
+    "mongoose": "^6.5.4"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.19"
+  }
+}
