@@ -79,20 +79,25 @@ const findAllRecords = async () => {
 const readAndAggregate = async () => {
     const records = await DisDeath.aggregate([
         {
+            $match: {
+                survived: 0
+            }
+        },
+        {
             $group: {
-                _id: "$name",
-                total: { $sum: "$DisDeaths" }
+                _id: "$sex",
+                averageAge: { $avg: "$age" }
             }
         }
     ]);
     console.log(records);
 }
 const updateRecords = async () => {
-    const records = await DisDeath.updateMany({ sex: /female/ }, { $set: { fare: 0.5 * fare } });
+    const records = await DisDeath.updateMany({ sex: /male/ }, { $set: { survived: 1 } });
     console.log(records);
 }
 const deleteRecords = async () => {
-    const records = await DisDeath.deleteMany({ name: /female/ });
+    const records = await DisDeath.deleteMany({ sex: /female/ });
     console.log(records);
 }
 
@@ -102,7 +107,7 @@ const deleteRecords = async () => {
 // populate().catch(err => console.log(err));
 
 // Querying the database
-findAllRecords().catch(err => console.log(err));
+// findAllRecords().catch(err => console.log(err));
 
 // // Read + Aggregation
 // readAndAggregate().catch(err => console.log(err));
@@ -112,5 +117,3 @@ findAllRecords().catch(err => console.log(err));
 
 // // Delete records
 // deleteRecords().catch(err => console.log(err));
-
-

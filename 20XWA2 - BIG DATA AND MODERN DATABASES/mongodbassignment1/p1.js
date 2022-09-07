@@ -21,7 +21,7 @@ const Diversion = mongoose.model("Diversion", diversionSchema);
 
 // Functionalities
 const populate = async () => {
-    await Diversion.insertMany([{
+    docs = await Diversion.insertMany([{
         name: 'A',
         diversions: 31,
         year: 2001,
@@ -78,16 +78,16 @@ const deleteRecords = async () => {
 
 
 // Populating the database with user-data
-populate().catch(err => console.log(err));
+// populate().catch(err => console.log(err));
 
 // Querying the database
 findAllRecords().catch(err => console.log(err));
 
 // Read + Aggregation
-readAndAggregate().catch(err => console.log(err));
+// readAndAggregate().catch(err => console.log(err));
 
 // Update records
-updateRecords().catch(err => console.log(err));
+// updateRecords().catch(err => console.log(err));
 
 // Delete records
-deleteRecords().catch(err => console.log(err));
+// deleteRecords().catch(err => console.log(err));
