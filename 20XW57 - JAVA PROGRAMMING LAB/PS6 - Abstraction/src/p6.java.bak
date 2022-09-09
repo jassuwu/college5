@@ -7,7 +7,7 @@ public class p6 {
         System.out.println("Enter the number of bookings:");
         int noOfBookings = Integer.parseInt(sc.nextLine());
         List<TicketBooking> tbList = new ArrayList<TicketBooking>();
-        System.out.println("Enter the booking details separated with '-' :");
+        System.out.println("Enter the booking details:");
         while(noOfBookings > 0) {
             String[] details = sc.nextLine().split("-");
             tbList.add(new TicketBooking(details[0], Double.valueOf(details[1]), new SimpleDateFormat("dd/MM/yyyy").parse(details[2]), details[3]));
