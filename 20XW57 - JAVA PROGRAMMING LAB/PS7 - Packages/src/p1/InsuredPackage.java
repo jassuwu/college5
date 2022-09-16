@@ -1,4 +1,5 @@
 package p1;
+
 import java.lang.*;
 import java.util.*;
 
@@ -15,11 +16,9 @@ public class InsuredPackage extends Package {
             return 2.45;
         } else if (shippingCost >= 1.01 && shippingCost <= 3.00) {
             return 3.95;
-        }
-        else if (shippingCost >= 3.00) {
+        } else if (shippingCost >= 3.00) {
             return 5.55;
-        }
-        else {
+        } else {
             return 0.00;
         }
     }

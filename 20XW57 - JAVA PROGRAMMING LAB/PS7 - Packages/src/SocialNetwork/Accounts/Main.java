@@ -1,15 +1,15 @@
-package p2;
+package Accounts;
+
 import java.lang.*;
 import java.util.*;
-
 
 // Can add the sending and receiving messages as Message, Inbox classes. If I have time, i.e..
 public class Main {
     public static void main(String[] args) {
         // Making three people
-        Person p1 = new Person("p1", "M", new Date(1,1,1), "phn1", "email1");
-        Person p2 = new Person("p2", "F", new Date(2,2,2), "phn2", "email2");
-        Person p3 = new Person("p3", "F", new Date(3,3,3), "phn3", "email3");
+        Person p1 = new Person("p1", "M", new Date(1, 1, 1), "phn1", "email1");
+        Person p2 = new Person("p2", "F", new Date(2, 2, 2), "phn2", "email2");
+        Person p3 = new Person("p3", "F", new Date(3, 3, 3), "phn3", "email3");
 
         // Making accounts for the three people
         Account a1 = new Account(p1, "u1", "pass1");

@@ -1,4 +1,5 @@
 package p1;
+
 import java.lang.*;
 import java.util.*;
 
@@ -13,7 +14,7 @@ public class Package {
         this.shippingCost = calculateCost(weightInOunces, shippingMethod);
     }
 
-    private double calculateCost(double weightInOunces, String shippingMethod){
+    private double calculateCost(double weightInOunces, String shippingMethod) {
         switch (shippingMethod) {
             case "A":
                 if (weightInOunces >= 1 && weightInOunces <= 8) {
@@ -77,4 +78,3 @@ public class Package {
                 '}');
     }
 }
-

@@ -1,11 +1,10 @@
 package p1;
+
 import java.lang.*;
 import java.util.*;
 
-
 public class UsePackage {
-    public static void main(String[] args)
-    {
+    public static void main(String[] args) {
         Package p1 = new Package(10.00, "A");
         Package p2 = new Package(20.00, "T");
         Package p3 = new Package(30.00, "M");

@@ -1,7 +1,7 @@
-package p2;
+package Accounts;
+
 import java.lang.*;
 import java.util.*;
-
 
 public class Account {
     private Person person;
@@ -30,7 +30,8 @@ public class Account {
         this.friendList = friendList;
     }
 
-    public Account(String name, String gender, Date DOB, String phnNo, String email, String username, String password, ArrayList<Account> friendList) {
+    public Account(String name, String gender, Date DOB, String phnNo, String email, String username, String password,
+            ArrayList<Account> friendList) {
         this.person = new Person(name, gender, DOB, phnNo, email);
         this.username = username;
         this.password = password;
@@ -69,18 +70,18 @@ public class Account {
         this.friendList = friendList;
     }
 
-    public boolean addFriend(Account a){
+    public boolean addFriend(Account a) {
         this.friendList.add(a);
         return true;
     }
 
-    public boolean removeFriend(Account a){
+    public boolean removeFriend(Account a) {
         this.friendList.remove(a);
         return true;
     }
 
     public void displayFriendInfo() {
-        for (Account a : this.getFriendList()){
+        for (Account a : this.getFriendList()) {
             System.out.println(a.toString());
         }
     }
