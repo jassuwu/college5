@@ -7,13 +7,11 @@ public class Message {
     private String sender;
     private String receiver;
     private String message;
-    private Date dateOfReceival;
 
-    public Message(String sender, String receiver, String message, Date dateOfReceival) {
-        this.sender = sender;
-        this.receiver = receiver;
+    public Message(String message) {
+        this.sender = "NoSender";
+        this.receiver = "NoReceiver";
         this.message = message;
-        this.dateOfReceival = dateOfReceival;
     }
 
     // Getters and Setters
@@ -41,16 +39,8 @@ public class Message {
         this.message = message;
     }
 
-    public Date getDateOfReceival() {
-        return dateOfReceival;
-    }
-
-    public void setDateOfReceival(Date dateOfReceival) {
-        this.dateOfReceival = dateOfReceival;
-    }
-
     public String toString() {
-        return "Message {\nDateOfReceival=" + dateOfReceival + ", message=" + message + ", receiver=" + receiver
+        return "Message {\nmessage=" + message + ", receiver=" + receiver
                 + ", sender=" + sender + "\n}";
     }
 }

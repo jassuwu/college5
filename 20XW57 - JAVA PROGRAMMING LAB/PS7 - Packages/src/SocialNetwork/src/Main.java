@@ -1,9 +1,8 @@
-package Accounts;
-
 import java.lang.*;
 import java.util.*;
+import Accounts.*;
+import Inbox.*;
 
-// Can add the sending and receiving messages as Message, Inbox classes. If I have time, i.e..
 public class Main {
     public static void main(String[] args) {
         // Making three people
@@ -25,6 +24,10 @@ public class Main {
 
         // Displaying info for all of a1's friends.
         a1.displayFriendInfo();
+
+        //a1 sending a message a2 and display a2's inbox
+        a1.sendMessage(new Message("Heyo this is a1, what you doing? This worksheet so ez."), a2);
+        a2.displayInbox();
 
         System.exit(0); // EXIT_SUCCESS, I think.
     }
