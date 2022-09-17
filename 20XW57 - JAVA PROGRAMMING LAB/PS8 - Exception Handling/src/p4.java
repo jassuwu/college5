@@ -3,15 +3,39 @@ import java.util.*;
 
 public class p4 {
     public static void main(String[] args) {
-        Event e1 = new Event("StageEvent", "d1", "o1", 1);
-        Event e2 = new Event("Exhibition", "d2", "o2", 2);
-        Event e3 = new Event("SportsMeet", "d3", "o3", 3);
-
         EventType et1 = new EventType(1, "StageEvent");
         EventType et2 = new EventType(2, "Exhibition");
         EventType et3 = new EventType(3, "SportsMeet");
+        ArrayList<EventType> etList = new ArrayList<>();
+        etList.add(et1);
+        etList.add(et2);
+        etList.add(et3);
+
+        Scanner sc = new Scanner(System.in);
+        int iterations = Integer.parseInt(sc.nextLine());
+        for ( int i = 0; i < iterations; i++) {
+            System.out.println("Enter " + (i + 1) + "th Event: ");
+            System.out.println("Enter the name: ");
+            String name = sc.nextLine();
+            System.out.println("Enter the detail: ");
+            String detail = sc.nextLine();
+            System.out.println("Enter the owner: ");
+            String owner = sc.nextLine();
+            System.out.println("Enter the typeId: ");
+            long typeId = Long.parseLong(sc.nextLine());
+        }
     }
 
+    public static boolean isValid(long typeId, ArrayList<EventType> etList) throws EventTypeDoesNotExistsException{
+        ArrayList<Long> etIDs = new ArrayList<>();
+        for(EventType et : etList) {
+            etIDs.add(et.getId());
+        }
+        if (etIDs.contains(typeId)) {
+            return true;
+        }
+        throw new EventTypeDoesNotExistsException("Event Type does not exist.");
+    }
 }
 
 class Event {
@@ -101,5 +125,11 @@ class EventType {
                 "\n\tid=" + id +
                 ",\n\tname='" + name + '\'' +
                 "}";
+    }
+}
+
+class EventTypeDoesNotExistsException extends Exception {
+    public EventTypeDoesNotExistsException(String message) {
+        super(message);
     }
 }
