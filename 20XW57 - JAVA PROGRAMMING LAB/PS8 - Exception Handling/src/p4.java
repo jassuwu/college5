@@ -3,6 +3,7 @@ import java.util.*;
 
 public class p4 {
     public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
         EventType et1 = new EventType(1, "StageEvent");
         EventType et2 = new EventType(2, "Exhibition");
         EventType et3 = new EventType(3, "SportsMeet");
@@ -10,8 +11,7 @@ public class p4 {
         etList.add(et1);
         etList.add(et2);
         etList.add(et3);
-
-        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter no. of iterations: ");
         int iterations = Integer.parseInt(sc.nextLine());
         for ( int i = 0; i < iterations; i++) {
             System.out.println("Enter " + (i + 1) + "th Event: ");
@@ -23,6 +23,13 @@ public class p4 {
             String owner = sc.nextLine();
             System.out.println("Enter the typeId: ");
             long typeId = Long.parseLong(sc.nextLine());
+            try {
+                if(isValid(typeId, etList)) {
+                    System.out.println(new Event(name, detail, owner, typeId).toString());
+                }
+            } catch (EventTypeDoesNotExistsException e ) {
+                System.err.println(e);
+            }
         }
     }
 
