@@ -2,13 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9e544ea8-ea26-4ca5-a1b0-65ecc9695595" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PS9 - Multithreaded Programming.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/p1.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/p2.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/p3.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PS9 - Multithreaded Programming/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PS9 - Multithreaded Programming/User.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PS9 - Multithreaded Programming/UserBO.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PS9 - Multithreaded Programming/UserBO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PS9 - Multithreaded Programming/p3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PS9 - Multithreaded Programming/p3.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,10 +38,11 @@
     "ASKED_ADD_EXTERNAL_FILES": "true",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true"
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "last_opened_file_path": "Z:/college5/20XW57 - JAVA PROGRAMMING LAB/PS9 - Multithreaded Programming"
   }
 }]]></component>
-  <component name="RunManager" selected="Application.p3">
+  <component name="RunManager" selected="Application.p1">
     <configuration name="p1" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="p1" />
       <module name="PS9 - Multithreaded Programming" />
@@ -68,9 +66,9 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.p1" />
         <item itemvalue="Application.p3" />
         <item itemvalue="Application.p2" />
-        <item itemvalue="Application.p1" />
       </list>
     </recent_temporary>
   </component>
@@ -98,5 +96,16 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/p1.java</url>
+          <line>27</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
