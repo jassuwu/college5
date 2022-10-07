@@ -18,16 +18,13 @@ public class p3 {
             userList.add(new User(s.split(",")[0], s.split(",")[1]));
         }
 
-//        for(int i = 0; i < noOfUsers/noOfUsersPerThread; i++) {
-//            new UserBO(userList.subList(i,i+noOfUsersPerThread)).start();
-//        }
-//        printMessages(noOfUsers, noOfUsersPerThread, userList);
+        addMessages(noOfUsers, noOfUsersPerThread, userList);
 
     }
 
-    public synchronized static void printMessages(Integer noOfUsers, Integer noOfUsersPerThread, List<User> userList) {
+    public synchronized static void addMessages(Integer noOfUsers, Integer noOfUsersPerThread, List<User> userList) {
         for(int i = 0; i < noOfUsers/noOfUsersPerThread; i++) {
-            new UserBO(userList.subList(i,i+noOfUsersPerThread)).start();
+            new Thread(new UserBO(userList.subList(i,i+noOfUsersPerThread))).start();
         }
     }
 }
@@ -59,9 +56,17 @@ class User {
     public void setMobileNumber(String mobileNumber) {
         this.mobileNumber = mobileNumber;
     }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "username='" + username + '\'' +
+                ", mobileNumber='" + mobileNumber + '\'' +
+                '}';
+    }
 }
 
-class UserBO extends Thread {
+class UserBO implements Runnable {
     public List<User> userList;
     public static List<String> message;
 
@@ -77,5 +82,9 @@ class UserBO extends Thread {
                 message.add("The message is sent to the user " + u.getUsername() + " at the mobile number " + u.getMobileNumber());
             }
         }
+    }
+
+    public static List<String> getMessage() {
+        return message;
     }
 }
