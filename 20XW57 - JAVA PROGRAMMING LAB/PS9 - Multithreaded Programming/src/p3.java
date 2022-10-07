@@ -34,7 +34,7 @@ public class p3 {
 
     public synchronized static void addMessages(Integer noOfUsers, Integer noOfUsersPerThread, List<User> userList)
             throws InterruptedException {
-        for (int i = 0; i < noOfUsers / noOfUsersPerThread; i++) {
+        for (int i = 0; i < noOfUsers; i += noOfUsersPerThread) {
             Thread t = new UserBO(userList.subList(i, i + noOfUsersPerThread));
             t.start();
             t.join();
