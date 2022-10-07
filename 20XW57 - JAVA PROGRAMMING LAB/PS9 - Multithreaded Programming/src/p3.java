@@ -11,20 +11,33 @@ public class p3 {
         System.out.println("Enter the user details: ");
         List<String> users = new ArrayList<>();
         List<User> userList = new ArrayList<>();
-        for(int i = 0; i < noOfUsers; i++) {
+        for (int i = 0; i < noOfUsers; i++) {
             users.add(sc.nextLine());
         }
-        for(String s : users ){
+        sc.close();
+        for (String s : users) {
             userList.add(new User(s.split(",")[0], s.split(",")[1]));
         }
-
-        addMessages(noOfUsers, noOfUsersPerThread, userList);
+        // Adding to the messages
+        try {
+            addMessages(noOfUsers, noOfUsersPerThread, userList);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        // Printing the messages
+        System.out.println();
+        for (String msg : UserBO.message) {
+            System.out.println(msg);
+        }
 
     }
 
-    public synchronized static void addMessages(Integer noOfUsers, Integer noOfUsersPerThread, List<User> userList) {
-        for(int i = 0; i < noOfUsers/noOfUsersPerThread; i++) {
-            new Thread(new UserBO(userList.subList(i,i+noOfUsersPerThread))).start();
+    public synchronized static void addMessages(Integer noOfUsers, Integer noOfUsersPerThread, List<User> userList)
+            throws InterruptedException {
+        for (int i = 0; i < noOfUsers / noOfUsersPerThread; i++) {
+            Thread t = new UserBO(userList.subList(i, i + noOfUsersPerThread));
+            t.start();
+            t.join();
         }
     }
 }
@@ -66,25 +79,21 @@ class User {
     }
 }
 
-class UserBO implements Runnable {
+class UserBO extends Thread {
     public List<User> userList;
-    public static List<String> message;
+    public static List<String> message = new ArrayList<>();
 
     public UserBO(List<User> userList) {
         this.userList = userList;
-        this.message = new ArrayList<>();
     }
 
     @Override
     public void run() {
         synchronized (this) {
-            for(User u : userList) {
-                message.add("The message is sent to the user " + u.getUsername() + " at the mobile number " + u.getMobileNumber());
+            for (User u : userList) {
+                message.add("The message is sent to the user " + u.getUsername() + " at the mobile number "
+                        + u.getMobileNumber());
             }
         }
-    }
-
-    public static List<String> getMessage() {
-        return message;
     }
 }
