@@ -3,10 +3,6 @@ import requests
 import datetime
 import uuid
 
-response_API = requests.get('https://fakestoreapi.com/products')
-data = response_API.text
-parsedJSON = json.loads(data)
-
 class Product:
     
     # Class members
@@ -77,7 +73,7 @@ class ShoppingCart:
     def addProduct(self, product):
         self.cart.append(product)
         
-    def removeProduct(self, productid):
+    def removeProduct(self, sno):
         del self.cart[sno-1]
         
     def getContents(self):
@@ -91,11 +87,11 @@ S = ShoppingCart()
 
 
 while(True):
-    print("WELCOME TO 45minsofwork.")
+    print("WELCOME TO 45minsofwork and more due to corrections from jessi.")
     print("What do you want to do? ")
-    print("A. Add an item")
-    print("R. Remove an item")
-    print("S. Get me out of here.")
+    print("A. Add an item.")
+    print("R. Remove an item.")
+    print("S. Summary of the cart.")
     print("T. Terminate the shopping.")
     choice = input()
     if choice == "A":
@@ -120,7 +116,7 @@ while(True):
     elif choice == "T":
         break
     else:
-        print("Kindly visit Vasan Eye Care.")
+        print("Kindly visit Aravind Eye Hospitals.")
     
 print("YOUR ORDER WAS PLACED. YOU ORDERED: ")
 print(S.getContents())
