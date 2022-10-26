@@ -1,7 +1,4 @@
-import json
-import requests
-import datetime
-import uuid
+import json, datetime, uuid
 
 class Product:
     
@@ -25,6 +22,8 @@ class Product:
         theDict={"name":self.name, "price": self.price, "quantity": self.quantity, "uniqueIdentifier": self.uniqueIdentifier, "brand": self.brand}
         return json.dumps(theDict)
     
+    def __repr__(self):
+        return "Product(" + self.name + "," + str(self.price) + "," + str(self.quantity) + "," + self.uniqueIdentifier + "," + self.brand + ")"
 class Clothing(Product):
     
     # Class members
@@ -76,9 +75,13 @@ class ShoppingCart:
     def removeProduct(self, sno):
         del self.cart[sno-1]
         
-    def getContents(self):
-        for i in range(len(self.cart)):
-            print(i+1, "|", json.loads(self.cart[i].toJSON()))
+    def getContents(self, jsonB=False):
+        if jsonB:
+            for i in range(len(self.cart)):
+                print(i+1, "|", json.loads(self.cart[i].toJSON()))
+        else:
+            for i in range(len(self.cart)):
+                print(i+1, "|", self.cart[i])
         
     def changeProductQuantity(self, sno, newQuantity):
         self.cart[sno-1].quantity = newQuantity
@@ -86,13 +89,17 @@ class ShoppingCart:
 S = ShoppingCart()
 
 
+print("WELCOME TO 45minsofwork and more due to corrections from jessi.")
+print("What do you want to do? ")
+print("A. Add an item.")
+print("R. Remove an item.")
+print("S. Summary of the cart.")
+print("Q. Change quantity of the product")
+print("E. Get JSONified cart")
+print("H. Display available commands")
+print("T. Terminate the shopping.")
+
 while(True):
-    print("WELCOME TO 45minsofwork and more due to corrections from jessi.")
-    print("What do you want to do? ")
-    print("A. Add an item.")
-    print("R. Remove an item.")
-    print("S. Summary of the cart.")
-    print("T. Terminate the shopping.")
     choice = input()
     if choice == "A":
         name=input("Enter the name:")
@@ -105,18 +112,28 @@ while(True):
     elif choice == "R":
         sno = int(input("Enter the S.No. of the product you want to remove: "))
         S.removeProduct(sno)
-        print("ITEM REMOVED.")
-    elif choice == "U":
+        print("ITEM REMOVED.")        
+    elif choice == "Q":
         sno = int(input("Enter the S.No. of the product you want to change qty: "))
         newQuantity = int(input("Enter the new quantity of the product: "))
         S.changeProductQuantity(sno, newQuantity)
     elif choice == "S":
-        print("YOUR CART: ")
+        print("YOUR CART IN JSON: ")
         S.getContents()
+    elif choice == "E":
+        S.getContents(json=True)
+    elif choice == "H":
+        print("A. Add an item.")
+        print("R. Remove an item.")
+        print("S. Summary of the cart.")
+        print("Q. Change quantity of the product")
+        print("E. Get JSONified cart")
+        print("H. Display available commands")
+        print("T. Terminate the shopping.")
     elif choice == "T":
         break
     else:
-        print("Kindly visit Aravind Eye Hospitals.")
+        print("Use H. for HELP.")
     
 print("YOUR ORDER WAS PLACED. YOU ORDERED: ")
 print(S.getContents())
