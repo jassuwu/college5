@@ -1,18 +1,17 @@
-import org.jetbrains.annotations.NotNull;
-
-import java.lang.*;
 import java.util.*;
+
 public class p3 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         List<Hall> halls = new ArrayList<>();
         System.out.println("Enter the number of halls: ");
         int n = Integer.parseInt(sc.nextLine());
-        for(int i = 0; i < n; i++) {
+        for (int i = 0; i < n; i++) {
             System.out.println("Enter the details for the hall: ");
-            String[] input=sc.nextLine().split(",");
+            String[] input = sc.nextLine().split(",");
             halls.add(new Hall(input[0], input[1], input[2], input[3]));
         }
+        sc.close();
         System.out.println("BEFORE SORTING OF HALLS: " + halls);
         Collections.sort(halls);
         System.out.println("AFTER SORTING OF HALLS: " + halls);
@@ -67,9 +66,9 @@ class Hall implements Comparable {
     }
 
     @Override
-    public int compareTo(@NotNull Object o) {
-        Hall h = (Hall)o;
-        return (int)(this.getCostPerDay()-h.getCostPerDay());
+    public int compareTo(Object o) {
+        Hall h = (Hall) o;
+        return (int) (this.getCostPerDay() - h.getCostPerDay());
     }
 
     @Override
