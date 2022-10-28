@@ -1,32 +1,30 @@
-import java.lang.*;
 import java.util.*;
 
 public class p1 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        Map<Character,Card> map = new TreeMap<>();
+        Map<Character, Card> map = new TreeMap<>();
         int count = 0;
         boolean flag;
         do {
-            Card c  = new Card();
+            Card c = new Card();
             System.out.println("Enter a card: ");
             c.setSymbol(sc.nextLine().trim().charAt(0));
             c.setNumber(sc.nextInt());
             sc.nextLine();
-            if(!map.containsKey(c.getSymbol()))
-                map.put(c.getSymbol(),c);
+            if (!map.containsKey(c.getSymbol()))
+                map.put(c.getSymbol(), c);
             count++;
             flag = !map.containsKey('a') || !map.containsKey('b') || !map.containsKey('c') || !map.containsKey('d');
 
-        }while(flag);
-
+        } while (flag);
 
         System.out.println();
-        System.out.println("Four symbols gathered in "+count+" Cards.");
+        System.out.println("Four symbols gathered in " + count + " Cards.");
         System.out.println("Cards in Set are: ");
 
-        for(char ch:map.keySet()) {
-            System.out.println(ch+" "+map.get(ch).getNumber());
+        for (char ch : map.keySet()) {
+            System.out.println(ch + " " + map.get(ch).getNumber());
         }
         sc.close();
     }
@@ -61,7 +59,6 @@ class Card {
         this.number = number;
     }
 
-
     @Override
     public boolean equals(Object card) {
         if (card instanceof Card c) {
@@ -78,6 +75,7 @@ class Card {
                 ", number='" + number + '\'' +
                 '}';
     }
+
     @Override
     public int hashCode() {
         return String.valueOf(symbol).hashCode();

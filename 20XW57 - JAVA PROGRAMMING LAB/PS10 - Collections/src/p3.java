@@ -19,7 +19,7 @@ public class p3 {
     }
 }
 
-class Hall implements Comparable {
+class Hall implements Comparable<Hall> {
     private String name, contactNumber, ownerName;
     private Double costPerDay;
 
@@ -66,8 +66,7 @@ class Hall implements Comparable {
     }
 
     @Override
-    public int compareTo(Object o) {
-        Hall h = (Hall) o;
+    public int compareTo(Hall h) {
         return (int) (this.getCostPerDay() - h.getCostPerDay());
     }
 

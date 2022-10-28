@@ -1,25 +1,26 @@
-import java.lang.*;
 import java.util.*;
+
 public class p2 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         List<Stall> stalls = new ArrayList<>();
         System.out.println("Enter the number of stalls: ");
         int n = Integer.parseInt(sc.nextLine());
-        for(int i = 0; i < n; i++) {
+        for (int i = 0; i < n; i++) {
             System.out.println("Enter the details for the stall: ");
-            String[] input=sc.nextLine().split(",");
+            String[] input = sc.nextLine().split(",");
             stalls.add(new Stall(input[0], input[1], input[2], input[3]));
         }
         System.out.println("BEFORE REMOVAL OF TEST DATA: " + stalls);
-        Iterator<Stall> stallIterator= stalls.iterator();
-        while(stallIterator.hasNext()) {
+        Iterator<Stall> stallIterator = stalls.iterator();
+        while (stallIterator.hasNext()) {
             Stall newS = stallIterator.next();
             if (newS.getName().startsWith("test")) {
                 stallIterator.remove();
             }
         }
         System.out.println("AFTER REMOVAL OF TEST DATA: " + stalls);
+        sc.close();
         System.exit(0);
     }
 }
